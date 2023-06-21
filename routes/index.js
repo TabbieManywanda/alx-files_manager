@@ -2,7 +2,7 @@ import express from 'express';
 import AppController from '../controllers/AppController';
 // import AuthController from '../controllers/AuthController';
 // import FilesController from '../controllers/FilesController';
-// import UsersController from '../controllers/UsersController';
+import UsersController from '../controllers/UsersController';
 
 function controllerRouting(app) {
   const router = express.Router();
@@ -14,6 +14,10 @@ function controllerRouting(app) {
 
   router.get('/stats', (req, res) => {
     AppController.getStats(req, res);
+  });
+  
+  router.post('/users', (req, res) => {
+    UsersController.postNew(req, res);
   });
 }
 
